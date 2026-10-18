@@ -7,13 +7,13 @@ class UserManager:
         self.id = 0
     def add_user(self,name:str, age:int) -> dict:
         self.id +=1
-        new_user = {"id":self.id,"name":name,"age":,age}
+        new_user = {"id":self.id,"name":name,"age":age}
         self.users.append(new_user)
         return new_user
     def get_user(self,user_id:int):
-        for user in self.user:
+        for user in self.users:
             if user["id"] == user_id:
-                return user_id
+                return user
         return None
     def change_age(self,user_id:int,new_age:int) ->bool:
         user = self.get_user(user_id)
@@ -22,9 +22,9 @@ class UserManager:
             return True
         return False
     def remove_user(self,user_id:int) ->bool:
-        for index,user in enumerate(self.user):
+        for index,user in enumerate(self.users):
             if user["id"] == user_id:
-                del self,users[index]
+                del self.users[index]
                 return True
         return False
     def list_users(self) ->list:
@@ -35,7 +35,7 @@ class UserManager:
     def load_from_json(self,file_path:str):
         with open(file_path,"r",encoding="utf-8") as f:
             loaded_user = json.load(f)
-        self.users = loaded_users
+        self.users = loaded_user
         if self_users:
             self.id = max(user["id"] for user in self.users)
         else:
