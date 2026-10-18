@@ -4,7 +4,7 @@ def test_demo():
     print(um.add_user("李四", 20))
     print(um.get_user(1))
     print(um.get_user(99))
-    print(um.update_age(1, 19))
+    print(um.change_age(1, 19))
     print(um.remove_user(2))
     print(um.remove_user(2))
     print(um.list_users())
