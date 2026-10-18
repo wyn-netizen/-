@@ -36,7 +36,7 @@ class UserManager:
         with open(file_path,"r",encoding="utf-8") as f:
             loaded_user = json.load(f)
         self.users = loaded_user
-        if self_users:
+        if self.users:
             self.id = max(user["id"] for user in self.users)
         else:
             self.id = 0
